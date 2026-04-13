@@ -45,7 +45,7 @@ export function LoginPage() {
         <div className="mx-auto w-full max-w-sm">
           <h1 className="text-3xl font-bold tracking-tight">Welcome back</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Login to your Acme Inc account
+            Login to your Lms account
           </p>
 
           <form onSubmit={handleSubmit} className="mt-10 space-y-6">
