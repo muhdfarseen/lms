@@ -12,6 +12,11 @@ import { UsersPage } from "@/pages/users/UsersPage"
 import { UserGroupsPage } from "@/pages/users/UserGroupsPage"
 import { UserProfilePage } from "@/pages/users/UserProfilePage"
 import { ProvisioningPage } from "@/pages/users/ProvisioningPage"
+import { UserPortalLayout } from "@/pages/userportal/UserPortalLayout"
+import { UserPortalPage } from "@/pages/userportal/UserPortalPage"
+import { UserProfilePortalPage } from "@/pages/userportal/UserProfilePortalPage"
+import { UserCourseViewPage } from "@/pages/userportal/UserCourseViewPage"
+import { UserCurriculumViewPage } from "@/pages/userportal/UserCurriculumViewPage"
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useLMS()
@@ -24,6 +29,14 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+
+        {/* User Portal — no auth required */}
+        <Route element={<UserPortalLayout />}>
+          <Route path="/userportal" element={<UserPortalPage />} />
+          <Route path="/userportal/profile" element={<UserProfilePortalPage />} />
+          <Route path="/userportal/course/:id" element={<UserCourseViewPage />} />
+          <Route path="/userportal/curriculum/:id" element={<UserCurriculumViewPage />} />
+        </Route>
 
         <Route
           element={
